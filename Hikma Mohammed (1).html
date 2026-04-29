@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Hikma Mohammed | Portfolio</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <style>    
+        /* Modern Teal & Dark Theme */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; } 
+        body { line-height: 1.6; color: #e2e8f0; scroll-behavior: smooth; background-color: #020617; } 
+        
+        .navbar { 
+            background-color: #0f172a; 
+            padding: 1.2rem 5%; 
+            display: flex; 
+            justify-content: flex-end; 
+            align-items: center;
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 2px solid #2dd4bf;
+        } 
+        .nav-links a { 
+            color: #94a3b8; 
+            text-decoration: none; 
+            margin-left: 1.5rem; 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: 0.3s; 
+        } 
+        .nav-links a:hover { color: #2dd4bf; } 
+        
+        .hero { 
+            height: 100vh; 
+            background: radial-gradient(circle at center, #b45f15 0%, #603300 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+        } 
+        .hero-content h1 { font-size: 4rem; margin-bottom: 10px; color: #f8fafc; } 
+        .hero-content span { color: #2dd4bf; } 
+        
+        .btn-contact { 
+            display: inline-block; 
+            background: #2dd4bf; 
+            color: #020617; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            margin-top: 30px; 
+            padding: 14px 35px; 
+            transition: 0.4s; 
+            box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+        } 
+        .btn-contact:hover { transform: scale(1.05); background: #14b8a6; } 
+
+        section { padding: 100px 10%; }
+        h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #2dd4bf; }
+        
+        #about { background-color: #1c5986; color: #cbd5e1; }
+        
+        .services { background-color: #002fff; }
+        .service-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-box { 
+            background: #6b4444; 
+            padding: 40px; 
+            border-radius: 15px; 
+            text-align: center; 
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+        .service-box:hover { 
+            transform: translateY(-10px); 
+            border-bottom: 4px solid #2dd4bf;
+            background: #334155;
+        }
+        .service-box i { font-size: 3rem; color: #2dd4bf; margin-bottom: 20px; }
+        
+        #skill { background-color: #033f46; }
+        .skills-container { display: flex; gap: 60px; flex-wrap: wrap; }
+        .skills-content, .skills-bars { flex: 1; min-width: 300px; }
+        
+        .bar-container { margin-bottom: 25px; } 
+        .info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; color: #94a3b8; } 
+        .line { height: 12px; background: #276bc9; border-radius: 10px; position: relative; } 
+        .line::before { content: ""; position: absolute; height: 100%; background: #2dd4bf; border-radius: 10px; } 
+        .line.web::before { width: 93%; } 
+        .line.dev::before { width: 89%; } 
+        .line.problem::before { width: 77%; } 
+        
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: transparent;
+            color: #2dd4bf;
+            border: 2px solid #2dd4bf;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .read-more-btn:hover { background: #2dd4bf; color: #020617; }
+
+        .contact { background-color: #392f46; }
+        .contact-container { display: flex; gap: 50px; flex-wrap: wrap; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-form { flex: 1.5; min-width: 300px; display: flex; flex-direction: column; gap: 15px; }
+        
+        .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.1rem; }
+        .info-item i { color: #2dd4bf; font-size: 1.5rem; }
+
+        .contact-form input, .contact-form textarea { 
+            padding: 15px; 
+            border-radius: 8px; 
+            border: 1px solid #334155; 
+            background: #1e293b; 
+            color: white; 
+            outline: none;
+        }
+        .contact-form input:focus { border-color: #2dd4bf; }
+        .btn-send { 
+            padding: 15px; 
+            background: #2dd4bf; 
+            border: none; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border-radius: 8px; 
+            color: #020617; 
+            transition: 0.3s;
+            text-align: center;
+        }
+        .btn-send:hover { background: #14b8a6; }
+
+        footer { background-color: #020617; color: #64748b; padding: 40px; text-align: center; border-top: 1px solid #1e293b; } 
+        footer span { color: #fefefe; font-weight: bold; } 
+
+        @media (max-width: 768px) { 
+            .navbar { justify-content: center; padding: 1rem; } 
+            .hero-content h1 { font-size: 2.8rem; } 
+        } 
+    </style> 
+</head> 
+<body> 
+
+    <nav class="navbar"> 
+        <div class="nav-links"> 
+            <a href="#home">Home</a> 
+            <a href="#about">About</a> 
+            <a href="#services">Services</a> 
+            <a href="#skill">Skills</a> 
+            <a href="#contact">Contact</a> 
+        </div> 
+    </nav> 
+
+    <section id="home" class="hero"> 
+        <div class="hero-content"> 
+            <h1>Hi, I am <span>Hikma Mohammed</span></h1> 
+            <p style="font-size: 1.5rem; color: #94a3b8;">Natural Science Student & Web Developer</p>
+            <a href="#contact" class="btn-contact">Work With Me</a> 
+        </div> 
+    </section> 
+
+    <section id="about"> 
+        <h2>About Me</h2> 
+        <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.2rem;">
+            I am <b>Hikma Mohammed</b>. I am a Natural Science student with a strong passion for Web Development. 
+            I build high-quality digital products with a focus on clean design and professional code. 
+            I love combining my scientific background with technology to solve complex problems.
+        </p>
+    </section> 
+
+    <section id="services" class="services">
+        <h2>My Services</h2>
+        <div class="service-container">
+            <div class="service-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Web Crafting</h3>
+                <p>I design and build modern, responsive websites that deliver a seamless user experience and high performance.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-flask"></i>
+                <h3>Data & Science Insights</h3>
+                <p>LUsing scientific methods and data analysis to turn complex information into clear, actionable results for research and technology projects.</p></p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>Digital Solutions</h3>
+                <p>Providing end-to-end technical support, from optimizing digital workflows to implementing smart tools that enhance productivity and online presence.ning.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skill"> 
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skills-content">
+                <p>As a Natural Science student and developer, I have a unique perspective on modern web technologies and systematic problem-solving.</p>
+                <a href="#home" class="read-more-btn">Read More</a>
+            </div>
+            <div class="skills-bars"> 
+                <div class="bar-container"> 
+                    <div class="info"><span>Web Design</span><span>98%</span></div> 
+                    <div class="line web"></div> 
+                </div> 
+                <div class="bar-container"> 
+                    <div class="info"><span>Web Development</span><span>97%</span></div> 
+                    <div class="line dev"></div> 
+                </div> 
+                <div class="bar-container"> 
+                    <div class="info"><span>Scientific Thinking</span><span>96%</span></div> 
+                    <div class="line problem"></div> 
+                </div> 
+            </div> 
+        </div>
+    </section> 
+
+    <section id="contact" class="contact"> 
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Hikma Mohammed</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>hikma.mohammed@example.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>09********</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Addis Ababa, Ethiopia</span>
+                </div>
+            </div>
+
+            <form class="contact-form"> 
+                <input type="text" placeholder="Your Name"> 
+                <input type="email" placeholder="Your Email"> 
+                <textarea placeholder="Tell me about your project..." rows="5"></textarea> 
+                <button type="button" class="btn-send" onclick="window.location.href='#home'">
+                    Send Message
+                </button> 
+            </form> 
+        </div>
+    </section> 
+
+    <footer> 
+        <p>&copy; 2026 <span>Hikma Mohammed</span>. All Rights Reserved.</p> 
+    </footer> 
+</body> 
+</html>
